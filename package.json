@@ -1,0 +1,16 @@
+{
+  "name": "cypress_playwright",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {},
+  "author": "iso",
+  "license": "ISC",
+  "description": "",
+  "dependencies": {
+    "cypress": "^13.15.0"
+  },
+  "devDependencies": {
+    "@playwright/test": "^1.48.0",
+    "@types/node": "^22.7.5"
+  }
+}
