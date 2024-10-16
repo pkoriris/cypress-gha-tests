@@ -2,7 +2,9 @@
   "name": "cypress_playwright",
   "version": "1.0.0",
   "main": "index.js",
-  "scripts": {},
+  "scripts": {
+    "test:registerTest": "npx cypress run --spec cypress/e2e/tests/registerTest.cy.js"
+  },
   "author": "iso",
   "license": "ISC",
   "description": "",
@@ -11,6 +13,7 @@
   },
   "devDependencies": {
     "@playwright/test": "^1.48.0",
-    "@types/node": "^22.7.5"
+    "@types/node": "^22.7.5",
+    "cypress-mochawesome-reporter": "^3.8.2"
   }
 }

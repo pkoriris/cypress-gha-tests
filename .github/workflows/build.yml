@@ -10,5 +10,10 @@ jobs:
      - name: Run Cypress Test
        uses: cypress-io/github-action@v4
        with:
-         command: npx cypress run
-         browser: chrome
+         command: npm run test:registerTest
+         #browser: chrome
+         -name:Cypress Test Report
+         - uses: actions/upload-artifact@v4
+           with:
+             name: Mochawesome HTML Report
+             path: path/to/artifact/ # or path/to/artifact
