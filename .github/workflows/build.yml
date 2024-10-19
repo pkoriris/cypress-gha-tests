@@ -18,3 +18,12 @@ jobs:
          path: cypress/reports/html # or path/to/artifact
 
          #browser: chrome
+     - name: Slack Notification
+       uses: rtCamp/action-slack-notify@v2
+       env:
+        SLACK_COLOR: ${{ job.status }} # or a specific color like 'good' or '#ff00ff'
+        SLACK_ICON: https://github.com/rtCamp.png?size=48
+        SLACK_MESSAGE: 'Test Automation Report https://github.com/pkoriris/cypress-gha-tests/actions/runs/11383160783/job/&{{github.run_id}}'
+        SLACK_TITLE: Cypress Web Test
+        SLACK_USERNAME: rtCamp
+        SLACK_WEBHOOK: ${{ secrets.SLACK_WEBHOOK }}
