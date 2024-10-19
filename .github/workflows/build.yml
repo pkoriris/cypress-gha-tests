@@ -4,17 +4,17 @@ jobs:
  Cypress-Test:
    runs-on: ubuntu-latest
    steps:
-     - name: Checkout GitCode
-       uses: actions/checkout@v3
- 
-     - name: Run Cypress Test
-       uses: cypress-io/github-action@v5
-       with:
+    - name: Checkout code
+      uses: actions/checkout@v3
+
+    - name: Run Cypress tests
+      uses: cypress-io/github-action@v5
+      with:
          command: npm run test:registerTest
-     - name: Cypress Test Report
-       uses: actions/upload-artifact@v4
+    - name: Cypress Test Report
+      uses: actions/upload-artifact@v4
       # if: always ()
-       with:
+      with:
          name: Cypress execution report
          path: cypress/reports/html # or path/to/artifact
          #retention-days:30
