@@ -13,9 +13,11 @@ jobs:
          command: npm run test:registerTest
      - name: Cypress Test Report
        uses: actions/upload-artifact@v4
+      # if: always ()
        with:
-         name: Mochawesome HTML Report
+         name: Cypress execution report
          path: cypress/reports/html # or path/to/artifact
+         #retention-days:30
 
          #browser: chrome
      - name: Slack Notification
@@ -23,7 +25,7 @@ jobs:
        env:
         SLACK_COLOR: ${{ job.status }} # or a specific color like 'good' or '#ff00ff'
         SLACK_ICON: https://github.com/rtCamp.png?size=48
-        SLACK_MESSAGE: 'Cypress Test Automation Report https://github.com/pkoriris/cypress-gha-tests/actions/runs/11416125401/job/${{github.run_id}}'
+        SLACK_MESSAGE: 'Cypress Test Automation Report https://github.com/pkoriris/cypress-gha-tests/actions/runs/11416125401/job/31766981080'
         SLACK_TITLE: Cypress Tests
-        SLACK_USERNAME: rtCamp
+        SLACK_USERNAME: isronoh
         SLACK_WEBHOOK: ${{ secrets.SLACK_WEBHOOK }}
