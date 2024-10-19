@@ -4,17 +4,17 @@ jobs:
  Cypress-Test:
    runs-on: ubuntu-latest
    steps:
-    - name: Checkout code
-      uses: actions/checkout@v3
-
-    - name: Run Cypress tests
-      uses: cypress-io/github-action@v5
-      with:
+     - name: Checkout GitCode
+       uses: actions/checkout@v2
+ 
+     - name: Run Cypress Test
+       uses: cypress-io/github-action@v4
+       with:
          command: npm run test:registerTest
-    - name: Cypress Test Report
-      uses: actions/upload-artifact@v4
+     - name: Cypress Test Report
+       uses: actions/upload-artifact@v4
       # if: always ()
-      with:
+       with:
          name: Cypress execution report
          path: cypress/reports/html # or path/to/artifact
          #retention-days:30
@@ -25,7 +25,7 @@ jobs:
        env:
         SLACK_COLOR: ${{ job.status }} # or a specific color like 'good' or '#ff00ff'
         SLACK_ICON: https://github.com/rtCamp.png?size=48
-        SLACK_MESSAGE: 'Cypress Test Automation Report https://github.com/pkoriris/cypress-gha-tests/actions/runs/11416125401/job/31766981080'
+        SLACK_MESSAGE: 'Cypress Test Automation Report https://github.com/pkoriris/cypress-gha-tests/actions/runs/11416125401/job/${{github.run_id}}'
         SLACK_TITLE: Cypress Tests
         SLACK_USERNAME: isronoh
         SLACK_WEBHOOK: ${{ secrets.SLACK_WEBHOOK }}
